@@ -13,7 +13,9 @@ function App() {
     setToDo("");
   };
   const deleteBtn = (index) => {
-    setToDos(toDos.filter((_, toDoIndex) => index !== toDoIndex));
+    setToDos((curToDos) =>
+      curToDos.filter((_, toDoIndex) => index !== toDoIndex)
+    );
   };
   return (
     <div>
