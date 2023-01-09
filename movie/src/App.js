@@ -22,7 +22,7 @@ function App() {
           {coins.map((coin) => (
             <option key={coin.id}>
               {coin.name} ({coin.symbol}) : ${coin.quotes.USD.price} USD
-            </option>
+            </option> // coin print
           ))}
         </select>
       )}
