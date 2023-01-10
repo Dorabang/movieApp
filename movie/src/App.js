@@ -56,11 +56,14 @@ function App() {
               <img src={movieList.medium_cover_image} />
               <h2>{movieList.title}</h2>
               <p>{movieList.summary}</p>
-              {/* <ul>
+              {
+                /* <ul>
                 {movieList.genres.map((g) => (
                   <li key={g}>{g}</li>
                 ))}
-              </ul> */}
+              </ul> */
+                // genres prop이 없는 영화 항목들을 위해 아래와 같은 코드로 변경
+              }
               {movieList.hasOwnProperty('genres') ? (
                 <ul>
                   {movieList.genres.map((g) => (
