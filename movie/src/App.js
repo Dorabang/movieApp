@@ -2,54 +2,76 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [coins, setCoins] = useState([]);
-  // 비어있는 배열을 기본값으로 주어, 처음 새로고침되었을때(API 정보를 받아올때) 발생하는 오류를 방지함
-  const [cost, setCost] = useState(1);
-  const [need, setNeed] = useState(1);
-  const onChange = (event) => {
-    setCost(event.target.value);
-    setNeed(1);
+  const [movies, setMovies] = useState([]);
+  const getMovies = async () => {
+    const json = await (
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`,
+      )
+    ).json();
+    setMovies(json.data.movies);
+    setLoading(false);
   };
-  const handleInput = (event) => setNeed(event.target.value);
-  useEffect(() => {
-    fetch('https://api.coinpaprika.com/v1/tickers')
+
+  /*
+  
+    // 위와 같이 response를 생략하여 더 짧게 줄여쓸 수 있음.
+
+    const getMovies = async () => {
+    const response = await fetch(
+      `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`,
+    );
+    const json = await response.json();
+    setMovies(json.data.movies);
+    setLoading(false);
+  };
+
+  
+  // 요즘엔 then을 잘 사용하지 않는다.
+
+    useEffect(() => {
+    fetch(
+      `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`,
+    )
       .then((response) => response.json())
       .then((json) => {
-        setCoins(json);
+        setMovies(json.data.movies);
         setLoading(false);
       });
   }, []);
+
+  */
+
+  useEffect(() => {
+    getMovies();
+  }, []);
   return (
     <div>
-      <h1>The Coins! {loading ? '' : `(${coins.length})`}</h1>
       {loading ? (
-        <strong>Loading...</strong>
+        <h1>Loading...</h1>
       ) : (
-        <select onChange={onChange}>
-          {coins.map((coin) => (
-            <option
-              key={coin.id}
-              value={coin.quotes.USD.price}
-              id={coin.symbol}
-              symbol={coin.symbol}
-            >
-              {coin.name} ({coin.symbol}) : ${coin.quotes.USD.price} USD
-            </option>
+        <div>
+          {movies.map((movieList) => (
+            <div key={movieList.id}>
+              <img src={movieList.medium_cover_image} />
+              <h2>{movieList.title}</h2>
+              <p>{movieList.summary}</p>
+              {/* <ul>
+                {movieList.genres.map((g) => (
+                  <li key={g}>{g}</li>
+                ))}
+              </ul> */}
+              {movieList.hasOwnProperty('genres') ? (
+                <ul>
+                  {movieList.genres.map((g) => (
+                    <li key={g}>{g}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
           ))}
-        </select>
+        </div>
       )}
-
-      <hr />
-      <h2>Press coin 💰</h2>
-      <div>
-        <input
-          type='number'
-          value={need}
-          onChange={handleInput}
-          placeholder='dollor'
-        ></input>
-        <p>You can get {need / cost}</p>
-      </div>
     </div>
   );
 }
