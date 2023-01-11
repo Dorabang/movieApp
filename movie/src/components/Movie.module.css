@@ -1,0 +1,22 @@
+#section {
+  padding: 50px 0;
+}
+
+.title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px 0;
+}
+
+.gen {
+  padding: 10px 20px;
+  margin-bottom: 50px;
+  list-style: none;
+  background: white;
+  display: inline-block;
+  color: tomato;
+  border: 1px solid tomato;
+  border-radius: 5px;
+  font-weight: 700;
+  margin-right: 12px;
+  font-size: 14px;
+}
