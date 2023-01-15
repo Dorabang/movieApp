@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import Movie from '../components/Movie';
-import { Link } from 'react-router-dom';
 
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const [rating, setRating] = useState(null);
+  const getRating = (event) => setRating(event.target.value);
   const getMovies = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`,
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=${rating}&sort_by=year`,
       )
     ).json();
     // console.log(json.data.movies);
@@ -23,7 +24,16 @@ function Home() {
 
   return (
     <div>
-      {loading ? (
+      {rating === null ? (
+        <input
+          onChange={getRating}
+          value={rating}
+          type='number'
+          placeholder='Please enter less than 10 point.'
+          max='10'
+          min='0'
+        />
+      ) : loading ? (
         <p className='loading'>Loading...</p>
       ) : (
         <div className='movieList'>
