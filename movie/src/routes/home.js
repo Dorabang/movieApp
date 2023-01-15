@@ -28,9 +28,7 @@ function Home() {
       ) : (
         <div className='movieList'>
           <div className='logo'>
-            <Link to={`/Home`}>
-              <h1>Movie List</h1>
-            </Link>
+            <h1>Movie List</h1>
           </div>
           {movies.map((movieList) => (
             <Movie

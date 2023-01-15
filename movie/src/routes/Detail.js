@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import styles from './Detail.module.css';
 
 function Detail({}) {
   const { id } = useParams();
@@ -24,23 +25,34 @@ function Detail({}) {
   return (
     <div>
       {loading ? (
-        <p>Loading...</p>
+        <p className='loading'>Loading...</p>
       ) : (
         <div>
-          <div className='logo'>
+          <div className='goback'>
             <Link to={`/Home`}>
-              <h1>Movie List</h1>
+              <p>←</p>
             </Link>
           </div>
-          <img src={movie.large_cover_image} alt={movie.title} />
-          <h2>{movie.title}</h2>
-          <div>
-            <span>{movie.year}년도 &middot; </span>
-            <span>{movie.runtime}분 &middot; </span>
-            <span>{movie.rating}점</span>
+          <div className={styles.detail}>
+            <div className={styles.imgWrap}>
+              <img src={movie.large_cover_image} alt={movie.title} />
+            </div>
+            <h2 className={styles.title}>{movie.title}</h2>
+            <div>
+              <span>{movie.year}년도 &middot; </span>
+              <span>{movie.runtime}분 &middot; </span>
+              <span>{movie.rating}점</span>
+            </div>
+            <ul>
+              {genres &&
+                genres.map((gen) => (
+                  <li className={styles.gen} key={gen}>
+                    {gen}
+                  </li>
+                ))}
+            </ul>
+            <p className={styles.summary}>"{movie.description_full}"</p>
           </div>
-          <ul>{genres && genres.map((gen) => <li key={gen}>{gen}</li>)}</ul>
-          <p>{movie.description_full}</p>
         </div>
       )}
     </div>

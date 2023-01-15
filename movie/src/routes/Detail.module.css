@@ -1,0 +1,46 @@
+.detail {
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  transition: transform 0.3s;
+  text-align: center;
+  padding: 100px 50px;
+}
+
+.title {
+  padding: 50px 0 20px;
+  color: #eee;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.gen {
+  padding: 5px 10px;
+  margin: 0 10px 10px 0;
+  list-style: none;
+  display: inline-block;
+  color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.summary {
+  padding-top: 50px;
+  color: #999;
+  text-align: left;
+}
+
+span {
+  color: #eee;
+}
+
+.imgWrap {
+  text-align: center;
+}
+
+.imgWrap > img {
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+}

@@ -65,7 +65,7 @@ body {
   margin-bottom: 20px;
 }
 
-.logo a > h1 {
+.logo > h1 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -76,4 +76,22 @@ body {
   letter-spacing: -1px;
   color: #fff;
   text-shadow: 5px 5px 18px rgba(0, 0, 0, 0.5);
+}
+
+.goback {
+  position: relative;
+  height: 75px;
+}
+
+.goback > a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  font-size: 5rem;
+}
+
+.goback:hover > a {
+  color: #eee;
+  font-size: 5rem;
 }

@@ -22,7 +22,7 @@ function Movie({ id, coverImg, title, rating, runtime, summary, genres }) {
               ))}
           </ul>
           <p className={styles.summary}>
-            {summary.length > 250 ? `${summary.slice(0, 250)}...` : summary}
+            {summary.length > 250 ? `${summary.slice(0, 250)} ……` : summary}
           </p>
         </div>
       </Link>
