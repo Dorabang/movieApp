@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  color: #666;
+  line-height: 1.5;
+  background: #222;
+}
+
+#root {
+  margin: 0 auto;
+  width: 89.583%;
+}
+
+@media (max-width: 1024px) {
+  #root {
+    width: calc(100% - 100px);
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  #root {
+    width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 400px) {
+  #root {
+    width: calc(100% - 10px);
+  }
+}
+
+/* loading */
+.loading {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  vertical-align: middle;
+}
