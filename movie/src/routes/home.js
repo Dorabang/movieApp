@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Movie from '../components/Movie';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -10,6 +11,7 @@ function Home() {
         `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`,
       )
     ).json();
+    // console.log(json.data.movies);
     setMovies(json.data.movies);
     setLoading(false);
   };
@@ -22,13 +24,20 @@ function Home() {
   return (
     <div>
       {loading ? (
-        <p>Loading...</p>
+        <p className='loading'>Loading...</p>
       ) : (
-        <div>
+        <div className='movieList'>
+          <div className='logo'>
+            <Link to={`/Home`}>
+              <h1>Movie List</h1>
+            </Link>
+          </div>
           {movies.map((movieList) => (
             <Movie
               key={movieList.id}
               id={movieList.id}
+              rating={movieList.rating}
+              runtime={movieList.runtime}
               coverImg={movieList.medium_cover_image}
               title={movieList.title}
               summary={movieList.summary}

@@ -1,17 +1,79 @@
 @charset "utf-8";
 
 body {
-  font-family: 'Pretendard';
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.6rem;
-  color: #333;
+  color: #666;
   line-height: 1.5;
-}
-
-section {
-  padding: 50px 0;
+  background: #222;
 }
 
 #root {
   margin: 0 auto;
   width: 89.583%;
+  padding: 70px 0 100px;
+}
+
+@media (max-width: 1024px) {
+  #root {
+    width: calc(100% - 100px);
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  #root {
+    width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 400px) {
+  #root {
+    width: calc(100% - 10px);
+  }
+}
+
+/* loading */
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 900;
+  transform: translate(-50%, -50%);
+  letter-spacing: -1px;
+}
+
+/* movieList */
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  position: relative;
+  width: 100%;
+  height: 75px;
+  margin-bottom: 20px;
+}
+
+.logo a > h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -1px;
+  color: #fff;
+  text-shadow: 5px 5px 18px rgba(0, 0, 0, 0.5);
 }

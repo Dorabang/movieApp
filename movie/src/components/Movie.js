@@ -2,22 +2,30 @@ import styles from './Movie.module.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function Movie({ id, coverImg, title, summary, genres }) {
+function Movie({ id, coverImg, title, rating, runtime, summary, genres }) {
   return (
-    <div id={styles.section}>
-      <img src={coverImg} alt={title} />
-      <h2 className={styles.title}>
-        <Link to={`/movie/${id}`}>{title}</Link>
-      </h2>
-      <ul>
-        {genres &&
-          genres.map((gen) => (
-            <li className={styles.gen} key={gen}>
-              #{gen}
-            </li>
-          ))}
-      </ul>
-      <p>{summary}</p>
+    <div className={styles.movie}>
+      <Link to={`/movie/${id}`}>
+        <div className={styles.imgWrap}>
+          <img src={coverImg} alt={title} />
+        </div>
+        <div className={styles.movieTxt}>
+          <h2 className={styles.title}>{title}</h2>
+          <span>평점 : {rating}점 / </span>
+          <span>{runtime}분</span>
+          <ul>
+            {genres &&
+              genres.map((gen) => (
+                <li className={styles.gen} key={gen}>
+                  #{gen}
+                </li>
+              ))}
+          </ul>
+          <p className={styles.summary}>
+            {summary.length > 250 ? `${summary.slice(0, 250)}...` : summary}
+          </p>
+        </div>
+      </Link>
     </div>
   );
 }
