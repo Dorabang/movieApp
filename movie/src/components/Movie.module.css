@@ -8,7 +8,7 @@
 }
 
 .gen {
-  padding: 10px 20px;
+  padding: 5px 10px;
   margin-bottom: 50px;
   list-style: none;
   background: white;
@@ -18,5 +18,5 @@
   border-radius: 5px;
   font-weight: 700;
   margin-right: 12px;
-  font-size: 14px;
+  font-size: 12px;
 }

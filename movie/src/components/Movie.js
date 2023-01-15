@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Movie({ id, coverImg, title, summary, genres }) {
   return (
-    <section id={styles.section}>
+    <div id={styles.section}>
       <img src={coverImg} alt={title} />
       <h2 className={styles.title}>
         <Link to={`/movie/${id}`}>{title}</Link>
@@ -13,12 +13,12 @@ function Movie({ id, coverImg, title, summary, genres }) {
         {genres &&
           genres.map((gen) => (
             <li className={styles.gen} key={gen}>
-              {gen}
+              #{gen}
             </li>
           ))}
       </ul>
       <p>{summary}</p>
-    </section>
+    </div>
   );
 }
 

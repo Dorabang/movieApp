@@ -22,7 +22,7 @@ function Detail({}) {
   }, []);
 
   return (
-    <section>
+    <div>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -38,7 +38,7 @@ function Detail({}) {
           <p>{movie.description_full}</p>
         </div>
       )}
-    </section>
+    </div>
   );
 }
 

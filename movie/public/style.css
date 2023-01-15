@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+body {
+  font-family: 'Pretendard';
+  font-size: 1.6rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+section {
+  padding: 50px 0;
+}
+
+#root {
+  margin: 0 auto;
+  width: 89.583%;
+}

@@ -13,6 +13,7 @@ function Home() {
     setMovies(json.data.movies);
     setLoading(false);
   };
+  // async await -> 비동기 문법
 
   useEffect(() => {
     getMovies();
@@ -21,7 +22,7 @@ function Home() {
   return (
     <div>
       {loading ? (
-        <h1>Loading...</h1>
+        <p>Loading...</p>
       ) : (
         <div>
           {movies.map((movieList) => (
