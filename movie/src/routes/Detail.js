@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styles from './Detail.module.css';
+import Home from './Home';
 
 function Detail({}) {
   const { id } = useParams();
@@ -29,7 +30,7 @@ function Detail({}) {
       ) : (
         <div>
           <div className='goback'>
-            <Link to={`/Home`}>
+            <Link to={`/`}>
               <p>←</p>
             </Link>
           </div>
