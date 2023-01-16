@@ -29,7 +29,7 @@ function Detail() {
       ) : (
         <div>
           <div className='goback'>
-            <Link to={`/`}>
+            <Link to={`${process.env.PUBLIC_URL}/`}>
               <p>←</p>
             </Link>
           </div>
