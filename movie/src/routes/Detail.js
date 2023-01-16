@@ -1,27 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styles from './Detail.module.css';
-import Home from './Home';
 
-function Detail({}) {
+function Detail() {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [movie, setMovie] = useState();
   const [genres, setGenres] = useState([]);
 
-  const getMovies = async () => {
+  const getMovies = useCallback(async () => {
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
     setMovie(json.data.movie);
     setGenres(json.data.movie.genres);
     setLoading((current) => !current);
-  };
+  }, [id]);
 
   useEffect(() => {
     getMovies();
-  }, []);
+  }, [getMovies]);
 
   return (
     <div>
