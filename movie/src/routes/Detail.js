@@ -51,7 +51,7 @@ function Detail({}) {
                   </li>
                 ))}
             </ul>
-            <p className={styles.summary}>"{movie.description_full}"</p>
+            <p className={styles.summary}>{movie.description_full}</p>
           </div>
         </div>
       )}

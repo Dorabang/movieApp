@@ -95,3 +95,21 @@ body {
   color: #eee;
   font-size: 5rem;
 }
+
+.inputRating {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.inputRating p {
+  padding-bottom: 20px;
+}
+
+.inputRating input {
+  width: 80px;
+  border: none;
+  padding: 5px 10px;
+  background: #eee;
+  margin: 0 auto;
+}
