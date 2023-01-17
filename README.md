@@ -5,7 +5,7 @@
 
 > 설치
 
-: creaate-react-app (npm start 명령어를 통해)실행
+: create-react-app (npm start 명령어를 통해)실행
 
 
 > preview
